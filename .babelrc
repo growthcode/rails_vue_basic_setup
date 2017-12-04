@@ -1,4 +1,10 @@
 {
+  "env": {
+    "development": {
+      "plugins": [
+        ["babel-plugin-root-import", { "rootPathSuffix": "app" }], ],
+    },
+  },
   "presets": [
     ["env", {
       "modules": false,

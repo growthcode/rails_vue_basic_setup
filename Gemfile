@@ -52,11 +52,20 @@ gem 'pry-rails'
 gem 'webpacker' # https://mkdev.me/en/mentors/IvanShamatov || https://paweljw.github.io/2017/07/rails-5.1-api-with-vue.js-frontend-part-1-setting-up-a-rails-api-app/
 gem 'foreman'
 
+gem 'acts-as-taggable-on'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootswatch-rails'
+gem 'devise'
+gem 'ejs'
+gem 'paper_trail'
+gem 'paranoia'
+gem 'rolify'
+gem 'simple_form'
+gem 'pghero'
+
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'better_errors' # Better error page for Rack apps (doesn't work when you run "Bundle Exec rails s")
   gem 'bullet' # env development/test: pg, help to kill N+1 queries and unused eager loading
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rack-mini-profiler', require: false
   gem 'rubocop'
@@ -69,6 +78,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'meta_request' # Chrome extension for Rails development
+  gem 'rails_db' # Rails Database Viewer and SQL Query Runner
+  gem 'traceroute' # A Rake task that helps you find dead routes and unused actions in your Rails
 end
 
 group :test do

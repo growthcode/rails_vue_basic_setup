@@ -43,6 +43,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (5.0.0)
+      activerecord (>= 4.2.8)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     annotate (2.7.2)
@@ -70,6 +72,7 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
     byebug (9.1.0)
+    callsite (0.0.11)
     capybara (2.16.1)
       addressable
       mini_mime (>= 0.1.3)
@@ -81,6 +84,8 @@ GEM
       activesupport
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
+    codemirror-rails (5.16.0)
+      railties (>= 3.0, < 6.0)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -100,6 +105,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.3)
     dotenv (0.7.0)
+    ejs (1.1.1)
     erubi (1.7.0)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -121,6 +127,18 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     jsonapi-renderer (0.2.0)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -130,6 +148,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
+    meta_request (0.4.3)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (>= 1.1, < 3)
+      railties (>= 3.0.0, < 5.2.0)
     method_source (0.9.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
@@ -138,12 +160,19 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
+    paper_trail (8.1.0)
+      activerecord (>= 4.2, < 5.2)
+      request_store (~> 1.1)
     parallel (1.12.0)
     paranoia (2.4.0)
       activerecord (>= 4.0, < 5.2)
     parser (2.4.0.2)
       ast (~> 2.3)
     pg (0.21.0)
+    pghero (2.1.0)
+      activerecord
+    polyamorous (1.3.1)
+      activerecord (>= 3.0)
     powerpack (0.1.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -153,6 +182,8 @@ GEM
     public_suffix (3.0.1)
     puma (3.11.0)
     rack (2.0.3)
+    rack-contrib (2.0.0)
+      rack (~> 2.0)
     rack-mini-profiler (0.10.7)
       rack (>= 1.2.0)
     rack-proxy (0.6.2)
@@ -176,6 +207,13 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_db (1.6.0)
+      codemirror-rails
+      kaminari
+      rails (>= 3.1.0)
+      ransack
+      simple_form
+      terminal-table
     railties (5.1.4)
       actionpack (= 5.1.4)
       activesupport (= 5.1.4)
@@ -185,12 +223,20 @@ GEM
     rainbow (2.2.2)
       rake
     rake (12.3.0)
+    ransack (1.8.4)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.3)
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    request_store (1.3.2)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    rolify (5.1.0)
     rspec-core (3.7.0)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -232,6 +278,9 @@ GEM
     selenium-webdriver (3.7.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
+    simple_form (3.5.0)
+      actionpack (> 4, < 5.2)
+      activemodel (> 4, < 5.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -244,10 +293,14 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    terminal-table (1.8.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
     timecop (0.9.1)
+    traceroute (0.5.0)
+      rails (>= 3.0.0)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)
@@ -279,6 +332,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  acts-as-taggable-on
   annotate
   attribute_normalizer
   awesome_print
@@ -291,25 +345,33 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   colorize (~> 0.7.5)
   devise
+  ejs
   factory_bot
   faker
   font-awesome-rails
   foreman
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  meta_request
+  paper_trail
   paranoia
   pg (~> 0.18)
+  pghero
   pry-rails
   puma (~> 3.7)
   rack-mini-profiler
   rails (~> 5.1.4)
+  rails_db
+  rolify
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
   selenium-webdriver
+  simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
   timecop
+  traceroute
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
