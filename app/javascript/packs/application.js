@@ -7,5 +7,8 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
+// ONLY PUT FILES IN PACKS FOLDER THAT YOU WANT TO LOAD EVERY TIME!!
+// Removing these files requires server restart
+
 console.log('Hello World from Webpacker')
-import './hello_vue.js'
+import 'app/main.js'
